@@ -1,0 +1,301 @@
+<main>
+    <div class="slider">
+        <div class="sliderbox">
+            <div class="wrap">
+                <owl-carousel-o [options]="customOptions">
+                    <ng-template carouselSlide *ngFor="let item of Banners">
+                        <div class="item">
+                            <div class="image">
+                                <div class="ob-cover">
+                                    <img [src]="item.image" [alt]="item.image">
+                                </div>
+                                <div class="title-info">
+                                    <div class="container-no wide">
+                                        <div class="wrap">
+                                            <span class="price">${{item.price}}</span>
+                                            <h3 class="title">{{item.title}}</h3>
+                                            <div class="button"><a href="" class="primary-btn">Shop Now</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </owl-carousel-o>
+            </div>
+        </div>
+    </div>
+    <div class="guide">
+        <div class="container-no">
+            <div class="wrap">
+                <div class="heading">
+                    <h2 class="title">Products Guide</h2>
+                </div>
+                <div class="dotgrids scrollto">
+                    <div class="wrapper">
+                        <div class="item" *ngFor="let item of guides">
+                            <div class="dot-image">
+                                <div class="thumbnails hover">
+                                    <img [src]="item.image" alt="">
+                                </div>
+                            </div>
+                            <div class="dot-info">
+                                <h3 class="dot-title">{{item.title}}</h3>
+                                <p class="grey-color">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
+                                    deserunt facilis
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="carousel">
+        <div class="container-no">
+            <div class="wrap">
+                <div class="heading">
+                    <h2 class="title">New Arrivals</h2>
+                </div>
+                <div class="inner-wrapper">
+                    <div class="dotgrid carouselbox">
+                        <div class="wrappers">
+                            <owl-carousel-o [options]="ArirvalseOptions">
+                                <ng-template carouselSlide *ngFor="let item of carousel">
+                                    <div class="item">
+                                        <div class="dot-image">
+                                            <a href="" class="product-permalink"></a>
+                                            <div *ngIf="item.image">
+                                                <div *ngFor="let itemimage of item.image">
+                                                    <div class="thumbnail"><img [src]="itemimage.image_active" alt="">
+                                                    </div>
+                                                    <div class="thumbnail hover"><img [src]="itemimage.image_hover"
+                                                            alt=""></div>
+                                                </div>
+                                            </div>
+                                            <div class="actions">
+                                                <ul>
+                                                    <li><a href=""><i class="ri-star-line"></i></a></li>
+                                                    <li><a href=""><i class="ri-arrow-left-right-line"></i></a></li>
+                                                    <li><a href=""><i class="ri-eye-line"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="label"><span>-{{item.sale}}%</span></div>
+                                        </div>
+                                        <div class="dot-info">
+                                            <h2 class="dot-title"><a href="">{{item.title}}</a></h2>
+                                            <div *ngIf="item.price" class="product-price">
+                                                <span class="before">$62.00</span>
+                                                <span class="current">$45.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </ng-template>
+                            </owl-carousel-o>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bycats">
+        <div class="container-no">
+            <div class="wrap">
+                <div class="heading sort-list tabs">
+                    <span class="grey-color">in</span>
+                    <div class="wrap">
+                        <h3 class="opt-trigger" (click)="toggleUlClass()">
+                            <span class="value">{{ selectedValue }}</span>
+                            <i class="ri-arrow-down-s-line"></i>
+                        </h3>
+                        <ul [class.show]="isUlShow">
+                            <li (click)="updateSelectedValue('Sweater')" [class.active]="selectedValue === 'Sweater'"><a
+                                    href="#0" class="tabbed-trigger ">Sweater</a></li>
+                            <li (click)="updateSelectedValue('Hoodie')" [class.active]="selectedValue === 'Hoodie'"><a
+                                    href="#0" class="tabbed-trigger">Hoodie</a>
+                            </li>
+                            <li (click)="updateSelectedValue('Shirt')" [class.active]="selectedValue === 'Shirt'"><a
+                                    href="#0" class="tabbed-trigger">Shirt</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tabbed">
+                    <div class="sort-data sweater" [class.active]="selectedValue === 'Sweater'">
+                        <div class="dotgrid dotgrid-bycats">
+                            <div class="wrapper-bycats">
+                                <div class="item" *ngFor="let item of sweater">
+                                    <div class="dot-image">
+                                        <a href="" class="product-permalink"></a>
+                                        <div *ngIf="item.image">
+                                            <div *ngFor="let itemimage of item.image">
+                                                <div class="thumbnail"><img [src]="itemimage.image_active" alt="">
+                                                </div>
+                                                <div class="thumbnail hover"><img [src]="itemimage.image_hover" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="actions">
+                                            <ul>
+                                                <li><a href=""><i class="ri-star-line"></i></a></li>
+                                                <li><a href=""><i class="ri-arrow-left-right-line"></i></a></li>
+                                                <li><a href=""><i class="ri-eye-line"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="label"><span>-{{item.sale}}%</span></div>
+                                    </div>
+                                    <div class="dot-info">
+                                        <h2 class="dot-title"><a href="">{{item.title}}</a></h2>
+                                        <div *ngIf="item.price" class="product-price">
+                                            <span class="before">$62.00</span>
+                                            <span class="current">$45.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sort-data Hoodie" [class.active]="selectedValue === 'Hoodie'">
+                        <div class="dotgrid dotgrid-bycats">
+                            <div class="wrapper-bycats">
+                                <div class="item" *ngFor="let item of hoodie">
+                                    <div class="dot-image">
+                                        <a href="" class="product-permalink"></a>
+                                        <div *ngIf="item.image">
+                                            <div *ngFor="let itemimage of item.image">
+                                                <div class="thumbnail"><img [src]="itemimage.image_active" alt="">
+                                                </div>
+                                                <div class="thumbnail hover"><img [src]="itemimage.image_hover" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="actions">
+                                            <ul>
+                                                <li><a href=""><i class="ri-star-line"></i></a></li>
+                                                <li><a href=""><i class="ri-arrow-left-right-line"></i></a></li>
+                                                <li><a href=""><i class="ri-eye-line"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="label"><span>-{{item.sale}}%</span></div>
+                                    </div>
+                                    <div class="dot-info">
+                                        <h2 class="dot-title"><a href="">{{item.title}}</a></h2>
+                                        <div *ngIf="item.price" class="product-price">
+                                            <span class="before">$62.00</span>
+                                            <span class="current">$45.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sort-data Shirt" [class.active]="selectedValue === 'Shirt'">
+                        <div class="dotgrid dotgrid-bycats">
+                            <div class="wrapper-bycats">
+                                <div class="item" *ngFor="let item of shirt">
+                                    <div class="dot-image">
+                                        <a href="" class="product-permalink"></a>
+                                        <div *ngIf="item.image">
+                                            <div *ngFor="let itemimage of item.image">
+                                                <div class="thumbnail"><img [src]="itemimage.image_active" alt="">
+                                                </div>
+                                                <div class="thumbnail hover"><img [src]="itemimage.image_hover" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="actions">
+                                            <ul>
+                                                <li><a href=""><i class="ri-star-line"></i></a></li>
+                                                <li><a href=""><i class="ri-arrow-left-right-line"></i></a></li>
+                                                <li><a href=""><i class="ri-eye-line"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="label"><span>-{{item.sale}}%</span></div>
+                                    </div>
+                                    <div class="dot-info">
+                                        <h2 class="dot-title"><a href="">{{item.title}}</a></h2>
+                                        <div *ngIf="item.price" class="product-price">
+                                            <span class="before">$62.00</span>
+                                            <span class="current">$45.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner">
+        <div class="container-no">
+            <div class="wrap">
+                <div class="content">
+                    <span>Promo</span>
+                    <h3 class="title">Get ready!<br>Winter is coming..</h3>
+                    <div class="button"><a href="" class="primary-btn">Go get it</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fromblog">
+        <div class="container-no">
+            <div class="wrap">
+                <div class="heading">
+                    <h2 class="title">From the blog</h2>
+                </div>
+                <div class="dotgrid scrollto">
+                    <div class="wrapper-fromblog">
+                        <div class="item">
+                            <div class="dot-image">
+                                <div class="thumbnails hover">
+                                    <a href="">
+                                        <img src="assets/all-image/blog_01.jpg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="dot-info">
+                                <a href="">Hoodie</a>
+                                <h3 class="dot-title">
+                                    <a href="">What is easier knittting or crocheting?</a>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="dot-image">
+                                <div class="thumbnails hover">
+                                    <a href="">
+                                        <img src="assets/all-image/blog_02.jpg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="dot-info">
+                                <a href="">Hoodie</a>
+                                <h3 class="dot-title">
+                                    <a href="">What is easier knittting or crocheting?</a>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="dot-image">
+                                <div class="thumbnails hover">
+                                    <a href="">
+                                        <img src="assets/all-image/blog_03.jpg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="dot-info">
+                                <a href="">Hoodie</a>
+                                <h3 class="dot-title">
+                                    <a href="">What is easier knittting or crocheting?</a>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

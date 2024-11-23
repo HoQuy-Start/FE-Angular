@@ -1,0 +1,320 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Prata&display=swap');
+$primary-color: #2bcbba;
+$light-color: #d1d8e0;
+$grey-color: #687080;
+$red-color: #ff4757;
+$flashwhite-color: #f1f2f6;
+$white-color: #ffffff;
+$dark-color: #212121;
+
+
+$primary-font: 'Montserrat', sans-serif;
+$second-font: 'Prata', serif;
+
+
+$fs14: 14px;
+$fw600: 600;
+
+
+$transition-color: color .3s;
+$transition-background: background-color .3s;
+$transition-transform: transform .3s;
+$transition-border: border .3s;
+$shadow: 0px 10px 20px 0px rgb(0 0 0 / 20%);
+$fade: fade-bottom .3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+
+// @import '~@angular/cdk/overlay-prebuilt.css';
+@import '~@angular/cdk/overlay-prebuilt.css';
+// @import 'node_modules/@angular/cdk/overlay-prebuilt.css';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+// phải sử dụng owl ở trong trang styles.scss chính thì chúng mới hoạt động được
+/* Cách 1*/
+
+/* home dots in banner*/
+// .ob-cover{
+//     position: relative;
+// }
+.owl-dots {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    bottom: 50%;
+}
+
+.owl-theme .owl-dots .owl-dot span {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    opacity: 1;
+    background-color: transparent;
+}
+
+.owl-theme .owl-dots .owl-dot span::before {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    margin-left: -4px;
+    background-color: #212121;
+    border: 1px solid #212121;
+    border-radius: 50%;
+    transition: width 0.2s, height 0.2s, transform 0.3s;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.owl-theme .owl-dots .owl-dot.active span::before {
+    background-color: transparent;
+    width: 15px;
+    height: 15px;
+}
+
+.owl-theme .owl-dots .owl-dot.active span {
+    background: none;
+}
+
+.owl-theme .owl-dots .owl-dot:hover span {
+    background: none;
+}
+
+
+// hiệu ứng ảo ma baner start
+.slider .title-info :where(span, h3, .button) {
+    transform: translateY(30px);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.75s, opacity .75s, visibility .75s;
+}
+
+.slider .owl-item.active .title-info :where(span, h3, .button) {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+
+}
+
+.slider .owl-item.active .title-info h3 {
+    transition-delay: .5s;
+}
+
+.slider .owl-item.active .title-info .button {
+    transition-delay: .75s;
+}
+
+// hiệu ứng ảo ma baner end
+
+
+@media (max-width: 992px) {
+    .owl-dots {
+        position: absolute;
+        right: 3px;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        bottom: 50%;
+        top: 50%;
+    }
+
+}
+
+// .wrappers .owl-carousel {
+//     display: var(--display, grid);
+//     --grid-col: 175px;
+//     grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-col), 100%), 1fr));
+//     gap: 30px;
+// }
+
+// carousel-Home
+.inner-wrapper {
+    position: relative;
+}
+
+.wrappers .owl-nav .owl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-100%);
+    right: 0;
+}
+
+.wrappers .owl-nav .owl-prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-100%);
+    left: 0;
+    // opacity: 0;
+
+
+}
+
+.wrappers .owl-nav .owl-prev,
+.wrappers .owl-nav .owl-next {
+    width: 40px;
+    height: 40px;
+    border: 1px solid $grey-color;
+    color: $dark-color;
+    font-size: 20px;
+    border-radius: 50%;
+    transition: $transition-background, $transition-color, $transition-border;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+}
+
+.wrappers .owl-nav .owl-prev:hover,
+.wrappers .owl-nav .owl-next:hover {
+    color: $white-color;
+    background-color: $dark-color;
+    border-color: $dark-color;
+}
+
+
+
+@media (min-width: 1400px) {
+    .carousel {
+        .inner-wrapper {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+    }
+
+    .wrappers .owl-nav .owl-prev {
+        left: -80px;
+    }
+
+    .wrappers .owl-nav .owl-next {
+        right: -80px;
+    }
+}
+
+
+
+html {
+    scroll-behavior: smooth !important;
+    overflow-x: hidden !important;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $primary-font !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 1.8 !important;
+    color: $dark-color !important;
+    background-color: $white-color !important;
+}
+
+a {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+img {
+    max-width: 100% !important;
+    vertical-align: middle !important;
+}
+
+ul {
+    list-style: none !important;
+    margin-bottom: 0rem !important;
+}
+
+p {
+    margin: 0 0 15px !important;
+}
+
+input,
+textarea,
+select {
+    font: inherit !important;
+    width: 100% !important;
+}
+
+input[type=checkbox],
+input[type=radio] {
+    width: auto !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: inherit !important;
+}
+
+button {
+    font: inherit !important;
+}
+
+strong {
+    font-weight: $fw600 !important;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: $second-font !important;
+    font-weight: 400 !important;
+    line-height: normal !important;
+}
+
+h1 {
+    font-size: 2.75em !important;
+}
+
+h2 {
+    font-size: 2.5em !important;
+}
+
+h3 {
+    font-size: 2em !important;
+}
+
+h4 {
+    font-size: 1em !important;
+}
+
+// vì có nhiều scss sử dụng chung nên phải dùng chung 1 file scss chính này nhé ahihi
+.card {
+    display: flex;
+    flex-direction: column;
+    border-radius: .5rem;
+    background-color: #fff;
+    margin: 0 .25rem .5rem #e6edef;
+    color: #495070;
+
+    .card-head {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid #edf1f7;
+        font-size: 1rem;
+        font-weight: 600;
+
+    }
+
+    .card-body {
+        padding: 1rem 1.5rem;
+
+    }
+}
